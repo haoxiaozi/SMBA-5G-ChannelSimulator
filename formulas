@@ -25,4 +25,38 @@ FL(f, d) = 1.33 * f^0.284 * d^0.588, if 14 < d <= 400
 
 Total Path loss: 
 
-pl(f, d) = lognormal_pl + AT + FL
+PL(f, d) = lognormal_pl + AT + FL
+
+
+
+Friis Transmission Equation
+
+Pr: Power recieved
+Pt: Power transmitted
+Gt: Gain transmitter
+Gr: Gain receiver
+
+Pr = Pt + Gt + Gr - PL
+
+Noise: 
+(John-Nyquist)
+
+B: Bandwidth
+T: Temperature in Kelvin
+kb: Boltzmann Constant
+
+Pn = 10log10(kb*T*1000)+10log10(B)
+
+
+Signal to Noise
+
+SNR = Pr - Pn
+
+
+Capacity 
+(Shannon-Nyquist)
+
+C: Capacity (bits/s)
+B: Bandwidth
+
+C = Blog2(1+SNR)
