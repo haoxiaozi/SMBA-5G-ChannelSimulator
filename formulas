@@ -8,6 +8,16 @@ Weather attenuation factor
 
 AT = 0;
 
+Foilage Attenuation: 
+(Weissberger's model)
+
+d: # foilage depth (max 400m)
+
+FL(f, d) = 1.33 * f^0.284 * d^0.588, if 14 < d <= 400
+         = 0.45 * f^0.284 * d, if 0 < d <= 14
+
+
+
 Total Path loss: 
 
-pl(f, d) = lognormal_pl + AT 
+pl(f, d) = lognormal_pl + AT + FL
