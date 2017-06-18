@@ -1,7 +1,7 @@
-Free Space Path Loss (1m reference)
+## Free Space Path Loss (1m reference)
 fspl_1m(f) = 32.4 + 20log10(f);
 
-Log Normal Shadowing Path Loss
+## Log Normal Shadowing Path Loss
 
 n: Path loss exponent ( 1 < n < 5)
 chi: standard variation fadin ( 0 < chi < 20)
@@ -9,21 +9,16 @@ chi: standard variation fadin ( 0 < chi < 20)
 lognormal_pl(f, d, n, chi) = fspl_1m(f) + 10nlog10(d) + chi
 
 
-Weather attenuation factor
+## Weather attenuation factor
 
 AT = 0;
 
-Rain attenuation factor 
+## Rain attenuation factor 
 (ITU-R P.838-3)
 
 yr: Attenuation Rain (dB/km)
 
-k = (kH+kV+(kH-kV)cos^2(theta)cos(2tau))/2
-a = (kHaH+kVaV+(kHaH-kVaV)cos^2(theta)cos(2tau)/2k
-
-theta: path elevation angle
-tau: polarization tilt angle relative to horizontal
-28Ghz: 
+28Ghz coefficients (vertical/horizontal): 
 kH = 0.2051
 aH = 0.9679
 kV = 0.1964
@@ -31,7 +26,14 @@ aV = 0.9277
 
 yr = kR^a
 
-Foilage Attenuation: 
+Combination of parameters if linear/circular pol requested: 
+k = (kH+kV+(kH-kV)cos^2(theta)cos(2tau))/2
+a = (kHaH+kVaV+(kHaH-kVaV)cos^2(theta)cos(2tau)/2k
+theta: path elevation angle
+tau: polarization tilt angle relative to horizontal
+
+
+## Foilage Attenuation: 
 (Weissberger's model)
 
 d: # foilage depth (max 400m)
