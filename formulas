@@ -1,0 +1,13 @@
+Free Space Path Loss (1m reference)
+fspl_1m(f) = 32.4 + 20log10(f);
+
+Log Normal Shadowing Path Loss
+lognormal_pl(f, d, n, chi) = fspl_1m(f) + 10nlog10(d) + chi
+
+Weather attenuation factor
+
+AT = 0;
+
+Total Path loss: 
+
+pl(f, d) = lognormal_pl + AT 
