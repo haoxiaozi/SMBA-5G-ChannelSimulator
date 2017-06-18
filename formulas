@@ -2,7 +2,12 @@ Free Space Path Loss (1m reference)
 fspl_1m(f) = 32.4 + 20log10(f);
 
 Log Normal Shadowing Path Loss
+
+n: Path loss exponent ( 1 < n < 5)
+chi: standard variation fadin ( 0 < chi < 20)
+
 lognormal_pl(f, d, n, chi) = fspl_1m(f) + 10nlog10(d) + chi
+
 
 Weather attenuation factor
 
