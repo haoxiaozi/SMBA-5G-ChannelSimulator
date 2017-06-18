@@ -3,7 +3,7 @@
 % Copyright (c) 2017 New York University and NYU WIRELESS
 
 % Permission is hereby granted, free of charge, to any person obtaining a 
-% copy of this software and associated documentation files (the “Software”),
+% copy of this software and associated documentation files (the ï¿½Softwareï¿½),
 % to deal in the Software without restriction, including without limitation 
 % the rights to use, copy, modify, merge, publish, distribute, sublicense, 
 % and/or sell copies of the Software, and to permit persons to whom the 
@@ -13,7 +13,7 @@
 % in all copies or substantial portions of the Software. Users shall cite 
 % NYU WIRELESS publications regarding this work.
 
-% THE SOFTWARE IS PROVIDED “AS IS”, WITHOUTWARRANTY OF ANY KIND, EXPRESS OR 
+% THE SOFTWARE IS PROVIDED ï¿½AS ISï¿½, WITHOUTWARRANTY OF ANY KIND, EXPRESS OR 
 % IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
 % FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL 
 % THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR 
@@ -21,8 +21,46 @@
 % ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR 
 % OTHER DEALINGS IN THE SOFTWARE.
 
+% Defined Params
+N = 1; % Number of Simulation Runs
+
+dmin = 10; % TRDistance
+dmax = 100; % TRDistance
+
+freq = 28e9; % Carrier Freq
+n = 2; % Path Loss Exponent (PLE)
+SF = 3; % Shadow Factor (dB)
+TXPower = 30; % Transmit Power (dB)
+d0 = 1; % Free space reference distance, typically 1 meter
+
+
+% getNumClusters_AOA_AOD::
+% The number of time clusters ranges from 1 to 6, and the
+% mean number of spatial lobes is about 2 and is upper-bounded
+% by 5, which are obtained from field observations and are
+% much smaller than those in the 3GPP channel model [32].
+mu_AOA = 3; % mean number of spatial lobes at the RX 
+mu_AOD = 4; % mean number of spatial lobes at the TX 
+
+% getIntraClusterDelays::
+X_max = 0.5; % a number between 0 and 1 ??
+
+% getClusterExcessTimeDelays::
+mu_tau = 1; % mean excess delay in ns
+minVoidInterval = 25; % minimum inter-cluster void interval, typically set
+% to 25 ns for outdoor environments
+
+% getClusterPowers::
+Gamma = ; % time cluster decay constant, in ns
+sigmaCluster = ; % per-cluster shadowing, in dB
+
+% getSubpathPowers::
+gamma = ; % subpath decay constant, in ns
+sigmaSubpath = ; % per-subpath shadowing, in dB
+
+
 % Load desired parameters
-eval([sceType,'_',envType,'_',accessType,'_',freq,'_ChannelParams'])
+%eval([sceType,'_',envType,'_',accessType,'_',freq,'_ChannelParams'])
 
 % Output to command window
 disp(['Generating ',num2str(N),' CIRs...'])
