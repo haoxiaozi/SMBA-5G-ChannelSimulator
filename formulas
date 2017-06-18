@@ -13,6 +13,24 @@ Weather attenuation factor
 
 AT = 0;
 
+Rain attenuation factor 
+(ITU-R P.838-3)
+
+yr: Attenuation Rain (dB/km)
+
+k = (kH+kV+(kH-kV)cos^2(theta)cos(2tau))/2
+a = (kHaH+kVaV+(kHaH-kVaV)cos^2(theta)cos(2tau)/2k
+
+theta: path elevation angle
+tau: polarization tilt angle relative to horizontal
+28Ghz: 
+kH = 0.2051
+aH = 0.9679
+kV = 0.1964
+aV = 0.9277
+
+yr = kR^a
+
 Foilage Attenuation: 
 (Weissberger's model)
 
