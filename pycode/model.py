@@ -1,28 +1,25 @@
 """
 from tkinter import *
 import tkinter
-
 top = tkinter.Tk()
-
 def helloCallBack():
    tkinter.showinfo( "Hello Python", "Hello World")
-
 B = tkinter.Button(top, text = "Hello", command = helloCallBack)
-
 B.pack()
 B.place(bordermode=OUTSIDE, height=100, width=100)
 B.place(x = 35, y = 50)
 top.mainloop()
 """
-
-from tkinter import *
-from tkinter import messagebox
+import Tkinter
+import tkMessageBox
+from Tkinter import *
+#from tkinter import messagebox
 import functions
 import parameters
 
 # power = 100.00, distance = 50, freq_band = 200, vegetation = 0, buildings = 0, weatherAF = 0
 def myFunc ():
-    messagebox.showinfo("Say Hello", "Hello World.")
+    tkMessageBox.showinfo("Say Hello", "Hello World.")
 
 
 colour = 'snow'
@@ -70,6 +67,8 @@ e3.grid(row = 2, column = 1)
 e3.insert(0, 200) # default values
 
 e4.grid(row = 3, column = 1)
+e4.config(width=15)
+
 #e4.insert(0, 'Choose from list') # default values
 
 e5.grid(row = 4, column = 1)
@@ -89,102 +88,58 @@ mainloop()
 """
 from tkinter import *
 from tkinter import messagebox
-
-
 def hello():
    messagebox.showinfo("Say Hello", "Hello World")
-
-
 # defines the main window
 main = Tk()
 main.title("5G Network Simulator for Autonomous Vehicles")
 main.geometry("970x600") # size of the window in px
 main.configure(background='grey') # background colour
-
 # make a frame for the distance
 power_labelText = StringVar()
-
 power_frame = Frame(main)
-
 power_label = Label(power_frame, textvariable = 'Power')
-
-
 # name where the distance frame is going to be located
 B1 = Button(main, text = "Say Hello", command = hello, bd = 0)
 B1.place(x = 35, y = 50)
-
-
-
 power_frame.pack()
-
 main.mainloop()
 """
 """
 # TKinter stands for 'Tool Kit Interface', it was developed in C for Unix
 from tkinter import *
 from tkinter import ttk
-
 # make a dictionary that lists the title of the field and the unit it will work in
-
-
-
-
 root = Tk() # create an object, root will hold our window
-
 root.title("5G Network Simulator for Autonomous Vehicles")
-
 frame = Frame(root)
-
 powe_labelText = StringVar()
 dist_labelText = StringVar()
-
 # layout of the items
 power_label = Label(frame, textvariable = powe_labelText)
 distance_label = Label(frame, textvariable = dist_labelText)
 button = Button(frame, text="Simulate")
-
 # content of the GUI items
 dist_labelText.set("Distance")
 powe_labelText.set("Power")
-
 # fill in the data
 power_label.pack()
 distance_label.pack()
 button.pack()
 frame.pack()
-
-
 #ttk.Button(root, text="Hello TkInter Button").grid()
 #ttk.Label(root, text="Hello TkInter Label").grid()
-
-
 # path loss vs T-R separation distance plot
 #
-
-
-
 root.mainloop()
-
-
 # functor class
 class Mimo:
     def __init__(self, num_antennas = None):
         self.num_antennas = num_antennas
-
-
-
 distance_t_r = 10 # distance in metres
-
 transmiting_power = 10 # dB
-
 nof_antennas = 1 # number of antennas
-
 noise = 0
-
-
 environment = [] # py_dict
-
 mimo = Mimo()
-
-
 """
