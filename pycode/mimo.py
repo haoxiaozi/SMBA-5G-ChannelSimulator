@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as mp
 
-#this isn't complete yet. so it will not compile!
+# this isn't complete yet. so it will not compile!
 
 
 # numpy is the library used for mathematical functions
@@ -11,9 +11,9 @@ import matplotlib.pyplot as mp
 # nT = number of Transmitters
 # min_SNR and max_SNR are lower and upper bounds for the X-axis in the plot. they will be calculated in another module using the input parameters for rain,temprature,foilage, ...
 
-nR = 0
-nT = 0
-f_Bandwidth = 0
+nR = 4
+nT = 4
+f_Bandwidth = 80
 min_SNR = 0
 max_SNR = 0
 
@@ -34,12 +34,14 @@ def init(num_receivers, num_transmitters, frequency_Bandwidth, lowerSNR, upperSN
 
 
 # builds Channel Matrix H. Still needs to be implemented once I completely understand it.
-# i'm currently working on understanding how to construct the channel matrix and what kind of input we need from the user to do so. Nothing is looking promising sofar unfortunatly.
-# its a matrix with complex values though.
+# I used a rayleigh fading model for implementing the Channel Matrix hence the random rayleigh numbers used.
 def build_Channel_Matrix(nR, nT):
-    # Some code here to construct the matrix
+    a = np.empty([nR, nT])
+    scale = np.sqrt(0.5)
+    for x in np.nditer(a, op_flags=['readwrite']):
+        x[...] = np.random.rayleigh(scale)
+    return a
 
-    return
 
 
 # this function calculates the implements the Channel Capacity formula for MIMO-Systems.
@@ -49,13 +51,14 @@ def build_Channel_Matrix(nR, nT):
 # using this function
 def calculate_Channel_Capacity(avg_SNR):
     H = build_Channel_Matrix(nR, nT)
-    I_nR = np.eye(nR, nT, dtype=int)
-    H_conj_trans = np.H.getH()
-    A = I_nR + (avg_SNR / nT * (H * H_conj_trans))
+    I_nR = np.eye(nR, nR, dtype=int)
+    A = I_nR + (avg_SNR / nT * (H * np.transpose(H)))
     tmp = np.linalg.det(A)
     C = np.log2(tmp)
     return f_Bandwidth * C
 
+c = calculate_Channel_Capacity(20)
+print(c)
 
 def draw():
     x = np.arange(0, max_SNR, 2)
