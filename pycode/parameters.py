@@ -57,6 +57,6 @@ def rural_nlos():
 
 master = Tk()
 master.title("5G Network Simulator for Autonomous Vehicles")
-master.geometry("647x400") # size of the window in px
-colour = 'snow'
+master.geometry("580x400") # size of the window in px
+colour = 'white'
 master.configure(background = colour) # background colour

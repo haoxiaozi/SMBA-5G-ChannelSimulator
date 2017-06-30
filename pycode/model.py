@@ -52,7 +52,9 @@ plot.show()
 for i, label in enumerate(labels):
     Label(master, text=label, bg=colour).grid(row=i, column=0)
     if i == 5:
-        OptionMenu(master, 'Choose from list', *environment[0]).grid(row = i, column = 1)
+       a = OptionMenu(master,'Choose from list', *environment[0])
+       a.config(width = 15)
+       a.grid(row = i, column = 1)
     else:
         e = Entry(master, textvariable=StringVar())
         e.grid(row = i, column = 1)
@@ -60,5 +62,6 @@ for i, label in enumerate(labels):
 
 
 button = Button(master, text="Simulate", command = results_func).grid(row = len(labels), column = 1)
+
 
 mainloop()
