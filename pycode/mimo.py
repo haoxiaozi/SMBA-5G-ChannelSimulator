@@ -15,7 +15,7 @@ nR = 4
 nT = 4
 f_Bandwidth = 80
 min_SNR = 0
-max_SNR = 0
+max_SNR = 30
 
 
 # initializes the module with the values specified by the user
@@ -33,38 +33,34 @@ def init(num_receivers, num_transmitters, frequency_Bandwidth, lowerSNR, upperSN
     return
 
 
-# builds Channel Matrix H. Still needs to be implemented once I completely understand it.
+# builds Channel Matrix H.
 # I used a rayleigh fading model for implementing the Channel Matrix hence the random rayleigh numbers used.
-def build_Channel_Matrix(nR, nT):
-    a = np.empty([nR, nT])
+def generate_Channel_Matrix(nR, nT):
+    H = np.zeros((nR, nT),dtype=complex)
     scale = np.sqrt(0.5)
-    for x in np.nditer(a, op_flags=['readwrite']):
-        x[...] = np.random.rayleigh(scale)
-    return a
-
-
+    for x in np.nditer(H, op_flags=['readwrite']):
+            x[...] = np.random.rayleigh(scale) + 1j*np.random.rayleigh(scale)
+    return H
 
 # this function calculates the implements the Channel Capacity formula for MIMO-Systems.
 # it will return the maximum data rate the channel is capable of delivering measured in bits/s
 # the value of C is multiplied by the frequency bandwidth because what we actually get isn't the max data rate, but the spectral efficiency measured in bits/s/Hz
 # ideally we will have a range for the SNR (using the parameters input by the user for rain, weather, etc.) which we could then use to plot a graph that describe data rate in regards to SNR \
 # using this function
+
+H = generate_Channel_Matrix(nR, nT)
+
 def calculate_Channel_Capacity(avg_SNR):
-    H = build_Channel_Matrix(nR, nT)
     I_nR = np.eye(nR, nR, dtype=int)
-    A = I_nR + (avg_SNR / nT * (H * np.transpose(H)))
+    A = I_nR + (avg_SNR / nT * (np.dot(H,np.matrix.getH(H))))
     tmp = np.linalg.det(A)
-    C = np.log2(tmp)
+    C = np.real(np.log2(tmp))
     return f_Bandwidth * C
 
-c = calculate_Channel_Capacity(20)
-print(c)
+for i in range(1,30):
+    c = calculate_Channel_Capacity(i)
+    if c < 1000:
+        print('SNR = '+str(i)+' dBm' + '     Channel Capacity = ' + str(c)+' Mbit/s')
+    else:
+        print('SNR = '+str(i)+' dBm' + '     Channel Capacity = ' + str(c/1000)+' Gbit/s')
 
-def draw():
-    x = np.arange(0, max_SNR, 2)
-    y = calculate_Channel_Capacity(x)
-    mp.plot(x, y)
-    mp.ylabel('Channel Capacity in bits/s')
-    mp.xlabel('SNR in dB')
-    mp.show()
-    return
