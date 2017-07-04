@@ -3,7 +3,7 @@
 % Copyright (c) 2017 New York University and NYU WIRELESS
 
 % Permission is hereby granted, free of charge, to any person obtaining a 
-% copy of this software and associated documentation files (the “Software”),
+% copy of this software and associated documentation files (the ï¿½Softwareï¿½),
 % to deal in the Software without restriction, including without limitation 
 % the rights to use, copy, modify, merge, publish, distribute, sublicense, 
 % and/or sell copies of the Software, and to permit persons to whom the 
@@ -13,7 +13,7 @@
 % in all copies or substantial portions of the Software. Users shall cite 
 % NYU WIRELESS publications regarding this work.
 
-% THE SOFTWARE IS PROVIDED “AS IS”, WITHOUTWARRANTY OF ANY KIND, EXPRESS OR 
+% THE SOFTWARE IS PROVIDED ï¿½AS ISï¿½, WITHOUTWARRANTY OF ANY KIND, EXPRESS OR 
 % IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
 % FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL 
 % THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR 
@@ -26,27 +26,27 @@
 %
 % [1] http://wireless.engineering.nyu.edu/5g-millimeter-wave-channel-modeling-software/
 %
-% [2] M. K. Samimi and T. S. Rappaport, “3-D millimeter-wave statistical
-% channel model for 5G wireless system design”, IEEE Transactions on
-% Microwave Theory and Techniques, vol. 64, no. 7, pp. 2207–2225, 2016.
+% [2] M. K. Samimi and T. S. Rappaport, ï¿½3-D millimeter-wave statistical
+% channel model for 5G wireless system designï¿½, IEEE Transactions on
+% Microwave Theory and Techniques, vol. 64, no. 7, pp. 2207ï¿½2225, 2016.
 % [Online]. Available: http://ieeexplore.ieee.org/document/7501500/.
 %
-% [3] S. Sun et al., “Investigation of prediction accuracy, sensitivity, and
+% [3] S. Sun et al., ï¿½Investigation of prediction accuracy, sensitivity, and
 % parameter stability of large-scale propagation path loss models for
-% 5G wireless communications”, IEEE Transactions on Vehicular Technology,
-% vol. 65, no. 5, pp. 2843–2860, 2016. [Online]. Available: http:
+% 5G wireless communicationsï¿½, IEEE Transactions on Vehicular Technology,
+% vol. 65, no. 5, pp. 2843ï¿½2860, 2016. [Online]. Available: http:
 % //ieeexplore.ieee.org/document/7434656/.
 %
 % [4] G. R. MacCartney, Jr., S. Sun, T. S. Rappaport, Y. Xing, H. Yan, J.
-% Koka, R. Wang, and D. Yu, “Millimeter wave wireless communications:
-% New results for rural connectivity”, in All Things Cellular’16,
+% Koka, R. Wang, and D. Yu, ï¿½Millimeter wave wireless communications:
+% New results for rural connectivityï¿½, in All Things Cellularï¿½16,
 % in conjunction with ACM MobiCom, 2016. [Online]. Available: https:
 % //arxiv.org/abs/1608.05384.
 %
-% [5] S. Sun, T. S. Rappaport, R. W. Heath, A. Nix, and S. Rangan, “MIMO
+% [5] S. Sun, T. S. Rappaport, R. W. Heath, A. Nix, and S. Rangan, ï¿½MIMO
 % for millimeter-wave wireless communications: Beamforming, spatial
-% multiplexing, or both?”, IEEE Communications Magazine, vol. 52, no.
-% 12, pp. 110–121, 2014. [Online]. Available: http://ieeexplore.
+% multiplexing, or both?ï¿½, IEEE Communications Magazine, vol. 52, no.
+% 12, pp. 110ï¿½121, 2014. [Online]. Available: http://ieeexplore.
 % ieee.org/document/6979962/.
 
 
@@ -70,9 +70,9 @@
 clear all; close all; tic
 load('BasicParameters.mat'); % load the output data file containing the basic channel parameters
 f = BasicParameters.Frequency; % center carrier frequency
-RFBW = BasicParameters.Bandwidth; % RF bandwidth
-Nt = BasicParameters.NumberOfTxAntenna; % number of transmit antenna elements
-Nr = BasicParameters.NumberOfRxAntenna; % number of receive antenna elements
+RFBW = 800; % RF bandwidth
+Nt = 20; % number of transmit antenna elements
+Nr = 20; % number of receive antenna elements
 dTxAnt = BasicParameters.TxAntennaSpacing; % spacing between adjacent transmit antenna 
 %   elements with respect to the wavelength
 dRxAnt = BasicParameters.RxAntennaSpacing; % spacing between adjacent receive antenna 

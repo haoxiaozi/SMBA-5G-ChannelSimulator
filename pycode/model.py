@@ -4,16 +4,20 @@ from tkinter import *
 from tkinter import messagebox
 from functions import *
 from parameters import *
-from mimo import *
-import matplotlib.pyplot as plot
+#from mimo import *
+#import matplotlib.pyplot as plot
 
-
-
-#TODO: Make the selection window match the width of the text fields
-#TODO: Make the selection window chose from the list its names
+#TODO add carrier frequency in GHz to parameters
+#TODO: Complete 'snr_call' func parameters
 #TODO: Plug in choices to the function callback
-#TODO: Find the formula and try to plot it
-#TODO: Try plots
+#TODO plot1
+#capacity (in bits) vs SNR ()
+
+#TODO plot2
+#capacity (in bits) vs nT ()
+
+#TODO plot3
+#capacity (in bits) vs nR ()
 
 
 # power = 100.00, distance = 50, freq_band = 200, vegetation = 0, buildings = 0, weatherAF = 0
@@ -25,27 +29,7 @@ def results_func():
 
 
 
-"""
-plot.plot([1,2,3,4])
-plot.ylabel("y axis label")
-plot.xlabel("x axis label")
-plot.show()
 
-plot.plot([1,2,3,4], [1,4,9,16], 'ro')
-plot.axis([0, 6, 0, 20])
-plot.ylabel("y axis label")
-plot.xlabel("x axis label")
-plot.show()
-"""
-
-#plot1
-#capacity (in bits) vs SNR ()
-
-#plot2
-#capacity (in bits) vs nT ()
-
-#plot3
-#capacity (in bits) vs nR ()
 
 
 # Fill in Col = 0 with labels and Col = 1 with Entry fields

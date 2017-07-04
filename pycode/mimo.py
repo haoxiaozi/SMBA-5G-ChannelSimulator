@@ -1,15 +1,13 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-# this isn't complete yet. so it will not compile!
-
-
 # numpy is the library used for mathematical functions
 
 # Global variables
 # nR = number of Receivers
 # nT = number of Transmitters
 # min_SNR and max_SNR are lower and upper bounds for the X-axis in the plot. they will be calculated in another module using the input parameters for rain,temprature,foilage, ...
+# Bandwidth frequency in MHz
 
 nR = 20
 nT = 20
@@ -30,9 +28,8 @@ def init(num_receivers, num_transmitters, frequency_Bandwidth, lowerSNR, upperSN
     min_SNR = lowerSNR
     global max_SNR
     max_SNR = upperSNR
-    return
 
-
+# TODO: try to use the getChannelMatrix.m script from the NYUSIM tool since it would be much more accurate than just using random rayleigh numbers!
 # builds Channel Matrix H.
 # I used a rayleigh fading model for implementing the Channel Matrix hence the random rayleigh numbers used.
 def generate_Channel_Matrix(nR, nT):
@@ -44,10 +41,9 @@ def generate_Channel_Matrix(nR, nT):
 
 
 # this function calculates the implements the Channel Capacity formula for MIMO-Systems.
-# it will return the maximum data rate the channel is capable of delivering measured in bits/s
+# it will return the maximum data rate the channel is capable of delivering measured in Gbits/s
 # the value of C is multiplied by the frequency bandwidth because what we actually get isn't the max data rate, but the spectral efficiency measured in bits/s/Hz
-# ideally we will have a range for the SNR (using the parameters input by the user for rain, weather, etc.) which we could then use to plot a graph that describe data rate in regards to SNR \
-# using this function
+# ideally we will be able to plot the Channel capacity as a function of SNR , as a function of nT, and as a function of nR
 
 H = generate_Channel_Matrix(nR, nT)
 
@@ -63,10 +59,10 @@ def calculate_Channel_Capacity(avg_SNR):
 x = []
 y = []
 
-for i in range(1, 31):
+for i in range(1, max_SNR + 1):
     c = calculate_Channel_Capacity(i)
     x.append(i)
-    y.append(c/1000)
+    y.append(c / 1000)
     if c < 1000:
         print('SNR = ' + str(i) + ' dBm' + '     Channel Capacity = ' + str(c) + ' Mbit/s')
     else:
@@ -77,3 +73,4 @@ plt.title('Channel Capacity')
 plt.xlabel('Signal to Noise Ratio')
 plt.ylabel('Channel Capacity in Gbits/s')
 plt.show()
+
