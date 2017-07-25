@@ -1,5 +1,5 @@
-from math import log10, log2, cos, sin
-from parameters import *
+from numpy import log10, log2, cos, sin
+from project_constants import *
 
 # Free Space Path Loss (1m reference)
 def free_space_path_loss_1m(carrier_freq):
@@ -18,20 +18,22 @@ AT = 0
 
 # Foilage Attenuation:
 # (Weissberger's model)
-
+#The MED model is found to be applicable to cases in which the ray path is
+#blocked by dense, dry, in-leaf trees found in temperate-latitude forests
 
 #d: # foilage depth (max 400m)
 def foilage_loss(carrier_freq, foilage_depth):
     if 14 < foilage_depth <= 400:
         return 1.33 * (carrier_freq ** 0.284) * (foilage_depth ** 0.588)
-    elif 0 < foilage_depth <= 14:
+    elif 0 <= foilage_depth <= 14:
         return 0.45 * (carrier_freq ** 0.284) * foilage_depth
     else:
-        print("Input distance not in range 0 to 400.")
+        # Assume max 400m foilage
+        print("Input distance not in range 0 to 400. lel")
+        return 1.33 * (carrier_freq ** 0.284) * (400 ** 0.588)
 
-
-#The MED model is found to be applicable to cases in which the ray path is
-#blocked by dense, dry, in-leaf trees found in temperate-latitude forests
+# Rainfall attenuation
+# rain: rainfall in mm/hr
 def rain_loss(rain):
     theta = 0; # 0 deg elevation
     tau = 0; # horizontal polarization
@@ -55,9 +57,10 @@ def friis(pathloss, tx_power, tx_gain, rx_gain):
     return res;
 
 def nyquist_noise(bandwidth, temp = 20):
+    bw = bandwidth * 1e6; # Bandwidth given in MHz
     kb = 1.38065e-23; #Boltzmann Constant
     temp_kelvin = 273.15 + temp;
-    return 10 * log10(kb * temp_kelvin * 1e3) + 10 * log10(bandwidth)
+    return 10 * log10(kb * temp_kelvin * 1e3) + 10 * log10(bw)
 
 def snr_db(signal, noise):
     res = signal + noise;
@@ -72,7 +75,8 @@ def snr(signal, noise):
     #return signal - noise;
 
 def shannon_capacity(bandwidth, snr):
-    return bandwidth * log2(1 + snr);
+    bw = bandwidth * 1e6; # Bandwidth given in MHz
+    return bw * log2(1 + snr);
 
 labels =   ["Power in dB", "Distance in m", "Freq. Bandwidth in Hz", "Environment", "Vegetation [1 . . 0]", "Topology [1 . . 0]", "Weather attenuation factor [1 . . 0]"]
 
