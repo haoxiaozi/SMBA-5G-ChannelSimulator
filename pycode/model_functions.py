@@ -42,7 +42,7 @@ def rain_loss(rain):
     kv = 0.1964;
     av = 0.9277;
     k = (kh + kv + (kh - kv) * cos(theta)**2 * cos(2 * tau) ) / 2;
-    a = (kh * ah + kv * av + ( kh * ah - kv * av) * cos(theta) **2 * cos(2 * tau) ) / 2 * k;
+    a = (kh * ah + kv * av + ( kh * ah - kv * av) * cos(theta) **2 * cos(2 * tau) ) / (2 * k);
     return (k * rain ** a) / 1000; #return in db/m
 
 
@@ -63,8 +63,8 @@ def nyquist_noise(bandwidth, temp = 20):
     return 10 * log10(kb * temp_kelvin * 1e3) + 10 * log10(bw)
 
 def snr_db(signal, noise):
-    res = signal + noise;
-    print(signal, noise, res);
+    res = signal - noise;
+    #print(signal, noise, res);
     return res;
 
 def snr(signal, noise):

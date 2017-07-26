@@ -131,7 +131,7 @@ def plot_func():
 
     userinput()
 
-    d1 = np.arange(10, distance_m, 10) # start 0, end 400, step 10
+    d1 = np.arange(1e1, distance_m, 10) # start 0, end 400, step 10
 
     plt.figure(1)
     plt.subplot(211)
@@ -157,11 +157,11 @@ def plot_func():
     # Log Normal + Rain Loss 
     dat3 = []
     for d in d1:
-        dat3.append( path_loss(d, carrier_freq, pl_exp) + rain_loss(rainfall) )
+        dat3.append( path_loss(d, carrier_freq, pl_exp) + rain_loss(rainfall)*d )
 
     plt.plot(d1, dat3, 'y.', label='PL + Rain')
 
-    plt.legend(loc='upper right')
+    plt.legend(loc='lower right')
 
 
     ### SNR Plots ###
@@ -229,7 +229,7 @@ def plot_func():
         dat6.append( 
             shannon_capacity(bandwidth, 
                 snr( 
-                    friis(path_loss(d, carrier_freq, pl_exp) + rain_loss(rainfall), tx_power_db, tx_gain, rx_gain), 
+                    friis(path_loss(d, carrier_freq, pl_exp) + rain_loss(rainfall)*d, tx_power_db, tx_gain, rx_gain), 
                     nyquist_noise(bandwidth)
                     )
                 ) 
