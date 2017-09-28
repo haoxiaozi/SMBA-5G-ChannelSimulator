@@ -1,0 +1,18 @@
+*.aux
+*.log
+*.nav
+*.out
+*.snm
+*.toc
+*.acn
+*.bbl
+*.blg
+*.glo
+*.xdy
+
+*.swp
+*.swo
+
+# windows
+*.synctex.gz
+*.pdfsync

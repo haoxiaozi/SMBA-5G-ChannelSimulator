@@ -1,0 +1,88 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TUM-Vorlage: Wissenschaftliche Arbeit
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Rechteinhaber:
+%     Technische Universität München
+%     https://www.tum.de
+% 
+% Gestaltung:
+%     ediundsepp Gestaltungsgesellschaft, München
+%     http://www.ediundsepp.de
+% 
+% Technische Umsetzung:
+%     eWorks GmbH, Frankfurt am Main
+%     http://www.eworks.de
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{./res/settings.tex} % !!! DO NOT REMOVE !!!
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%cusom packages
+\usepackage[section]{placeins}
+
+\newcommand{\ReportTitle}{5G Network Analysis}
+\newcommand{\ReportAuthor}{
+    Martin Riedel (martin.riedel@tum.de) \\
+    Omar ()\\
+    Jose Mirzai ()\\
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{./res/commands.tex} % !!! DO NOT REMOVE !!!
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\input{./res/cover}
+
+\tableofcontents % Table of contents
+
+\input{introduction}
+\input{model}
+\input{simulation}
+\input{conclusion_outlook}
+
+\nocite{yosinski2011,hyperneatuserspage,neatuserspage,stanley2002,stanley2007,stanley2009,lee2013,gazebo2004,clune2011,multineat}
+\bibliography{bibliography}
+
+
+%\clearpage
+%
+%Using abbreviations:  \gls{abbr}
+%
+%\vspace{-\baselineskip}
+%\begin{description}[leftmargin=1em+5mm, labelindent=5mm]
+%\item[Definition in \texttt{acronyms.tex}:] \texttt{\textbackslash{}newacronym\{abbr\}\{abbr.\}\{Abbreviation\}\}}
+%\item[Referencing:] \texttt{\textbackslash{}gls\{abbr.\}}
+%\end{description}
+%
+%\subsection[]{Lists}
+%
+%\begin{itemize}
+%\item Item
+%    \begin{itemize}
+%    \item Item
+%    \end{itemize}
+%\end{itemize}
+%
+%
+%\subsection[]{Enumerations}
+%
+%\begin{enumerate}
+%\item Item 1
+%    \begin{enumerate}
+%    \item Item 2
+%    \end{enumerate}
+%\end{enumerate}
+%\clearpage
+
+%\listoffigures
+
+%\printacronyms
+
+%\listoftables
+
+\end{document}

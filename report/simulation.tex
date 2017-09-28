@@ -1,0 +1,46 @@
+% this file is called up by the header file
+% content in this file will be fed into the main document
+% ----------------------- paths to graphics ------------------------
+\graphicspath{{figures/}}
+
+% ----------------------- contents start here ------------------------
+
+                       
+\chapter{Simulation}
+\label{chap:simulation}
+
+\section{Sub}
+
+Blub blub
+
+\newpage %to align picture better. Can be removed if section above is shortend, or increased significantly.
+\section{Blub}
+
+\begin{figure}[htb]
+    \begin{center}
+        \includegraphics[width=0.9\linewidth]{allbot_gazebo_shots/leg_side_top_2.jpg}
+        \caption{Rendering of the cuboid leg model with simplified foot mesh.}
+        \label{fig:gaz_leg_side_top}
+    \end{center}
+\end{figure}
+\begin{figure}[htb]
+    \begin{center}
+    \includegraphics[width=0.9\linewidth]{allbot_gazebo_shots/allbot_side_top.jpg}
+        \caption{Rendering of the cuboid robot model in Gazebo.}
+        \label{fig:gaz_robot_side_top}
+    \end{center}
+\end{figure}
+
+
+
+\begin{figure}[htb]
+    \centering
+    \begin{minipage}{.9\textwidth}
+        \centering
+        \includegraphics[width=1\linewidth]{allbot_gazebo_shots/allbot_inertia_side_top.jpg}
+        \caption{Rendering of the moments of inertia (as cuboids) for the ALLBOT robot model.}
+        \label{fig:gaz_inertia}
+    \end{minipage}
+\end{figure}
+
+

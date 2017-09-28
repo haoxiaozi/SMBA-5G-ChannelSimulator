@@ -1,0 +1,29 @@
+% this file is called up by the header file
+% content in this file will be fed into the main document
+% ----------------------- paths to graphics ------------------------
+\graphicspath{{figures/}}
+
+% ----------------------- contents start here ------------------------
+
+
+\chapter{Conclusion and Outlook}\label{chap:conclusion_outlook}
+
+It is shown that it is possible to evolve effective gaits with machine learning techniques, in this case, genetic algorithms.
+This is an important insight because it has several advantages over manually designed gaits.
+Manually designed gaits are static in a sense that they cannot be adjusted to a certain environment (e.g. obstacles or different undergrounds).
+They always have to be readjusted manually.
+On the other side, evolved gaits using genetic algorithms could be implemented in such a way that they learn on-line.
+This means that the robot is not stuck to a fixed gait, but can learn steadily after each step.
+This has the advantage that it can adjust its gait to a new surface or obstacles.
+
+Since it took a very long time to find an adequate set of parameters and test each set over several hundreds of generations, we most certainly have not found the most efficient evolved gait.
+More training time and parameter adjustments should be done in future works.
+After this first essential step several topics would be of interest to study in more detail: 
+Until now, the gaits are evolved in a robot simulation. 
+These gaits could be transferred to the physical robot and be fine-tuned.
+The robot could be trained on different surfaces (in simulation and real life) with the goal that the robot automatically adapts its gait to overcome different obstacles.
+The ALLBOT comes with different foot shapes.
+Training the robot on these different shapes would allow to exhibit foot specific gaits.
+Each foot shape could be tested on different surfaces to see if some shapes are more suitable for specific surfaces.
+Furthermore, additional legs could be added to the robot to create for example a hexapedal (6-legged) robot.
+
