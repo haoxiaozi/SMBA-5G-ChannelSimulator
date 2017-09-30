@@ -1,0 +1,7 @@
+# Channel Simulator
+
+Start GUI with: 
+$ python model.py
+
+To generate a transmission plot and press the 'Tower-Receiver Plot' button.
+Requires matplotlib.
