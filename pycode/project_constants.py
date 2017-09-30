@@ -22,7 +22,7 @@ labels   = [
         "RX Gain [dBi]",
         "Foilage depth [m] (0...400)", 
         "Rainfall [mm/hr]", 
-        "Weather attenuation factor [1 . . 0]", 
+        "", 
         "Environment"
         ]
 

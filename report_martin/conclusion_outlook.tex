@@ -1,0 +1,23 @@
+% this file is called up by the header file
+% content in this file will be fed into the main document
+% ----------------------- paths to graphics ------------------------
+\graphicspath{{figures/}}
+
+% ----------------------- contents start here ------------------------
+
+
+\chapter{Conclusion and Outlook}\label{chap:conclusion_outlook}
+
+The channel model given in this report can be further expanded by including signal attenuation
+due to multipath. However, the mathematical model becomes non-trivial and the usage of existing
+implementations may be wise, such as Matlab's Phased Array System Toolbox. Multipath effects 
+produce curious results in respect to transmiter and receiver heights, where signals can be attenuated
+or amplified \cite{matlab-rf}. \\
+Furthermore, a MIMO channel model with corresponding channel matrix may be of utter interest, given 
+MIMO usage in LTE and especially 5G networks. With MIMO, it would be interesting to compare the effects 
+of signal attenuation between different operating modes i.e. precoding (for maximum single channel signal strength)
+verses spatial multiplexing (for parallel channels on the same carrier frequency) \cite{tse2005fundamentals}. \\
+Overall, the channel model and it's python implementation give a basic toolbox to generate
+channel capacity plots for various environments and influencing factors. Basic esimates about 
+necessary base station density for given data rates in given environments can be made. 
+
